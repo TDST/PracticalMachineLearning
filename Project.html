@@ -184,7 +184,7 @@ training_set &lt;- training_set[ , sparseness_quotient &gt; 0.90 ]</code></pre>
 </div>
 <div id="model-building-and-validation" class="section level2">
 <h2>5. Model Building and Validation</h2>
-<p>We build the model using our selected features, and verify their importance in the model:</p>
+<p>We build the model based on the random forest learning method, using our selected features, and verify their importance in the model. Random forests are a way of averaging multiple deep decision trees, trained on different parts of the same training set, with the goal of reducing the variance. This comes at the expense of a small increase in the bias and some loss of interpretability, but generally greatly boosts the performance of the final model.</p>
 <pre class="r"><code>model &lt;- randomForest( classe ~ ., data=training_set )
 varImp( model, scale = FALSE )</code></pre>
 <pre><code>##                        Overall
